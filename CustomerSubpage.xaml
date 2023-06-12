@@ -1,0 +1,104 @@
+﻿<UserControl x:Class="WPF_barber_proto.CustomerSubpage"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:WPF_barber_proto"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid x:Name="table">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition Width="auto"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+
+
+
+        <StackPanel Orientation="Horizontal">
+            <TextBox x:Name="HiddenId"
+                    Width="{Binding ElementName=data, Path=Columns[0].ActualWidth}"
+                    Visibility="Hidden"/>
+            <TextBox x:Name="AddNameBox"
+                    Width="{Binding ElementName=data, Path=Columns[1].ActualWidth}"/>
+            <TextBox x:Name="AddPhoneBox"
+                    Width="{Binding ElementName=data, Path=Columns[2].ActualWidth}"/>
+            
+        </StackPanel>
+        
+        <StackPanel Grid.Column="1"
+                    Grid.Row="0"
+                    Orientation="Horizontal">
+            <Button x:Name="Add" 
+                    Width="50"
+                    Height="auto"
+                    Click="Add_Click">Add</Button>
+            <Button x:Name="Delete" 
+                    Width="50" 
+                    Height="20" 
+                    VerticalAlignment="Top" 
+                    HorizontalAlignment="Left" 
+                    Grid.Row="1" Click="Delete_Click">Delete</Button>
+        </StackPanel>
+
+
+
+
+
+
+        <StackPanel Grid.Row="1"
+                    Orientation="Horizontal">
+            <TextBox x:Name="IdSearchBox"
+                     Width="{Binding ElementName=data, Path=Columns[0].ActualWidth}"/>
+            <TextBox x:Name="NameSearchBox"
+                     Width="{Binding ElementName=data, Path=Columns[1].ActualWidth}"/>
+            <TextBox x:Name="PhoneSearchBox"
+                     Width="{Binding ElementName=data, Path=Columns[2].ActualWidth}"/>
+        </StackPanel>
+
+        <Button x:Name="SearchButton"
+                Grid.Column="1"
+                Grid.Row="1"
+                Width="50"
+                HorizontalAlignment="Left" 
+                Click="SearchButton_Click">Search</Button>
+
+
+
+
+
+        <ScrollViewer Grid.Row="2">
+            <DataGrid x:Name="data"
+                  AutoGenerateColumns="False"
+                  HeadersVisibility="Column"
+                  CanUserAddRows="True"
+                  FontSize="20"
+                  RowEditEnding="data_RowEditEnding"
+                  Grid.Row="2">
+                <DataGrid.Columns>
+                    <DataGridTextColumn Header="Id" Binding="{Binding Id}"/>
+                    <DataGridTextColumn Header="Name" Binding="{Binding Name, UpdateSourceTrigger=PropertyChanged}"/>
+                    <DataGridTextColumn Header="Phone" Binding="{Binding Phone, UpdateSourceTrigger=PropertyChanged}"/>
+
+                </DataGrid.Columns>
+
+            </DataGrid>
+        </ScrollViewer>
+        
+
+
+
+
+
+
+
+
+    </Grid>
+</UserControl>

@@ -1,0 +1,216 @@
+﻿<Window x:Class="WPF_barber_proto.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPF_barber_proto"
+        mc:Ignorable="d"
+        WindowState="Normal"
+        xmlns:lvc="clr-namespace:LiveCharts.Wpf;assembly=LiveCharts.Wpf"
+        Title="MainWindow" Height="800" Width="1050">   
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Rectangle Grid.Row="0"
+                   Fill="#609EA2"/>
+        <StackPanel x:Name="buttons" 
+                    HorizontalAlignment="Left"
+                    Orientation="Horizontal"
+                    VerticalAlignment="Bottom">
+            <Button Click="ButtonFirst_Click" 
+                    x:Name="ButtonFirst" 
+                    Height="30" 
+                    Width="100">Reservations</Button>
+            <Button Click="ButtonSecond_Click"
+                    x:Name="ButtonSecond" 
+                    Height="30"
+                    Width="100">Editor</Button>
+            <Button Click="ButtonThird_Click"
+                    x:Name="ButtonThird" 
+                    Height="30"
+                    Width="100">Stats</Button>
+        </StackPanel>
+        <Label x:Name="MainTitle"
+               HorizontalAlignment="Center"
+               Width="auto"
+               Grid.Row="0" 
+               FontSize="30"
+               Content="Reservations"/>
+
+        <!--search bar + button
+        <StackPanel Grid.Row="0"
+                    Orientation="Horizontal" 
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Bottom"
+                    Margin="0,0,20,0">
+            <TextBox Height="20"
+                     Width="100"></TextBox>
+            <Button x:Name="Search">Search</Button>
+        </StackPanel>-->
+
+        <Grid Grid.Row="1"
+              x:Name="Reserve_cal"
+              Margin="0,10"
+              ShowGridLines="True"
+              Loaded="Reserve_cal_Loaded"
+              Visibility="Collapsed">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="*"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions >
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            <TextBlock Grid.Column="1"
+                       Text="Monday"
+                       FontSize="24"
+                       TextAlignment="Center"
+                       Background="LightBlue"
+					   />
+            <TextBlock Grid.Column="2"
+                       Text="Tuesday"
+                       FontSize="24"
+                       TextAlignment="Center"
+                       Background="LightBlue"/>
+            <TextBlock Grid.Column="3" 
+                       Text="Wednesday"
+                       FontSize="24"
+                       TextAlignment="Center"
+                       Background="LightBlue"/>
+            <TextBlock Grid.Column="4" 
+                       Text="Thursday"
+                       FontSize="24"
+                       TextAlignment="Center"
+                       Background="LightBlue"/>
+            <TextBlock Grid.Column="5"
+                       Text="Friday"
+                       FontSize="24"
+                       TextAlignment="Center"
+                       Background="LightBlue"/>
+            <TextBlock Grid.Column="6" 
+                       Text="Saturday"
+                       FontSize="24"
+                       TextAlignment="Center"
+                       Background="LightBlue"/>
+            <TextBlock Grid.Column="7" 
+                       Text="Sunday"
+                       FontSize="24"
+                       TextAlignment="Center"
+                       Background="LightBlue"/>
+
+            <TextBlock Grid.Row="1"
+                       Text="8:00"
+                       FontSize="20"
+                       />
+
+
+            <TextBlock Grid.Row="3"
+                       Text="9:00"
+                       FontSize="20"
+                       />
+            <TextBlock Grid.Row="5"
+                       Text="10:00"
+                       FontSize="20"
+                       />
+            <TextBlock Grid.Row="7"
+                       Text="11:00"
+                       FontSize="20"
+                       />
+            <TextBlock Grid.Row="9"
+                       Text="12:00"
+                       FontSize="20"
+                       />
+            <TextBlock Grid.Row="11"
+                       Text="13:00"
+                       FontSize="20"
+                       />
+            <TextBlock Grid.Row="13"
+                       Text="14:00"
+                       FontSize="20"
+                       />
+            <TextBlock Grid.Row="15"
+                       Text="15:00"
+                       FontSize="20"
+                      />
+            <TextBlock Grid.Row="17"
+                       Text="16:00"
+                       FontSize="20"
+                       />
+            <TextBlock Grid.Row="19"
+                       Text="17:00"
+                       FontSize="20"
+                       />
+            <TextBlock Grid.Row="21"
+                       Text="18:00"
+                       FontSize="20"
+                       />
+            <TextBlock Grid.Row="23"
+                       Text="19:00"
+                       FontSize="20"/>
+        </Grid>
+        <Grid x:Name="Editor"
+              Grid.Row="1"
+              Visibility="Visible">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="200px"/>
+                <ColumnDefinition/>
+            </Grid.ColumnDefinitions>
+            <Rectangle Fill="CornflowerBlue"/>
+            <StackPanel>
+                <RadioButton x:Name="Customer" 
+                             Content="Customer" 
+                             FontSize="25" 
+                             Checked="Customer_Checked"/>
+                <RadioButton x:Name="Staff" 
+                             Content="Staff"
+                             FontSize="25" Checked="Staff_Checked"/>
+                <RadioButton x:Name="Service" 
+                             Content="Service"
+                             FontSize="25" Checked="Service_Checked"/>
+                <RadioButton x:Name="Package"
+                             Content="Package"
+                             FontSize="25" Checked="Package_Checked"/>
+            </StackPanel>
+            <ContentControl x:Name="ContentControl"
+                            Grid.Column="2"/>
+        </Grid>
+        <Grid Grid.Row="1" x:Name="Stats" Margin="0,10" ShowGridLines="True" Visibility="Collapsed">
+            <lvc:CartesianChart Series="{Binding SeriesCollection}" LegendLocation="Bottom" />
+        </Grid>
+    </Grid>
+
+
+
+</Window>
